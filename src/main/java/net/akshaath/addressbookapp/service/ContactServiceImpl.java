@@ -16,7 +16,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Contact addContact(ContactDTO dto) {
-        Contact contact = new Contact(dto.getid(),dto.getFullName(), dto.getEmail(), dto.getPhone(), dto.getCity());
+    	Contact contact = new Contact(dto.getId(),dto.getFullName(), dto.getEmail(), dto.getPhone(), dto.getCity());
         return repository.save(contact);
     }
 
