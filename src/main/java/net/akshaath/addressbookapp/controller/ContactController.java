@@ -6,8 +6,11 @@ import net.akshaath.addressbookapp.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/contacts")
 @CrossOrigin(origins = "*")
@@ -29,6 +32,13 @@ public class ContactController {
     @GetMapping("/{id}")
     public Contact getById(@PathVariable Long id) {
         return service.getContactById(id);
+    }
+    @GetMapping("/test")
+    public String testLogging() {
+        log.debug("This is a DEBUG log for testing");
+        log.warn("This is a WARN log");
+        log.error("This is an ERROR log");
+        return "Logging tested!";
     }
 
     @PutMapping("/{id}")
